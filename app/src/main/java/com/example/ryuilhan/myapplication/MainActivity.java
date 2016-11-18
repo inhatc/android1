@@ -32,15 +32,12 @@ public class MainActivity extends AppCompatActivity {
         TV1 = (TextView) findViewById(R.id.textView3);
 
 
+
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
-                }else {
-                    double result = Double.parseDouble(ET1.getText().toString()) + Double.parseDouble(ET2.getText().toString());
-                    TV1.setText("Result : " + Double.toString(result));
-                }
+                    Calcurator('+');
+
             }
         });
 
@@ -48,12 +45,8 @@ public class MainActivity extends AppCompatActivity {
         B2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
-                }else {
-                    double result = Double.parseDouble(ET1.getText().toString()) - Double.parseDouble(ET2.getText().toString());
-                    TV1.setText("Result : " + Double.toString(result));
-                }
+                    Calcurator('-');
+
             }
         });
 
@@ -61,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
         B3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
-                }else {
-                    double result = Double.parseDouble(ET1.getText().toString()) * Double.parseDouble(ET2.getText().toString());
-                    TV1.setText("Result : " + Double.toString(result));
-                }
+                    Calcurator('*');
             }
         });
 
@@ -74,12 +62,7 @@ public class MainActivity extends AppCompatActivity {
         B4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
-                }else {
-                    double result = Double.parseDouble(ET1.getText().toString()) / Double.parseDouble(ET2.getText().toString());
-                    TV1.setText("Result : " + Double.toString(result));
-                }
+                Calcurator('/');
             }
         });
 
@@ -87,13 +70,31 @@ public class MainActivity extends AppCompatActivity {
         B5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
-                }else {
-                    double result = Double.parseDouble(ET1.getText().toString()) % Double.parseDouble(ET2.getText().toString());
-                    TV1.setText("Result : " + Double.toString(result));
-                }
+                    Calcurator('%');
             }
         });
+    }
+
+    void Calcurator(char op){
+        if(ET1.getText().toString().length()==0 || ET2.getText().toString().length()==0 || ET2.getText().toString().equals("0")) {
+            Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
+        }else {
+            double num1 = Double.parseDouble(ET1.getText().toString());
+            double num2 = Double.parseDouble(ET2.getText().toString());
+            double result = 0;
+            if(op=='+'){
+                result = num1 + num2;
+            }
+            else if (op=='-'){
+                result = num1 - num2;
+            }else if(op=='*'){
+                result = num1 * num2;
+            }else if(op=='/'){
+                result = num1 / num2;
+            }else if(op=='%'){
+                result = num1 % num2;
+            }
+            TV1.setText("Result : " + Double.toString(result));
+        }
     }
 }
