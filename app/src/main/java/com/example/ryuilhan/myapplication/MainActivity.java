@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         ET2 = (EditText) findViewById(R.id.editText2);
         TV1 = (TextView) findViewById(R.id.textView3);
 
-
-
         B1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
